@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4f46e5">
+  <title>О себе — Генератор UUID</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/icons/icon-192.png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <h1>О себе</h1>
+    <nav>
+      <a href="/">Главная</a>
+      <a href="/about">О себе</a>
+    </nav>
+  </header>
+
+  <main>
+    <p>ФИО: Кондратов Вадим Дмитриевич</p>
+    <p>Группа: 932404</p>
+    <p>Лабораторная работа №6, вариант 17: генератор UUID.</p>
+    <p>Приложение на Python + FastAPI, использует <code>uuid.uuid4()</code>,
+     устанавливается как PWA и работает оффлайн.</p>
+    <p>API: <code>GET /api/uuid?count=5</code> (count от 1 до 10, по умолчанию 1).</p>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
