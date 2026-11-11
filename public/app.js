@@ -1,4 +1,3 @@
-// ---- Регистрация service worker ----
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker
@@ -8,7 +7,6 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-// ---- Логика страницы (только на главной) ----
 const form = document.getElementById('form');
 if (form) {
   const countInput = document.getElementById('count');
@@ -36,7 +34,6 @@ if (form) {
     });
   }
 
-  // Запасной вариант на случай, когда сервер недоступен (офлайн)
   function generateLocally(count) {
     return Array.from({ length: count }, () => crypto.randomUUID());
   }
@@ -57,7 +54,6 @@ if (form) {
       }
       render(data.uuids);
     } catch (err) {
-      // сети нет — генерируем в браузере
       const n = Number(count);
       if (Number.isInteger(n) && n >= 1 && n <= 10) {
         render(generateLocally(n));

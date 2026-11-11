@@ -57,3 +57,5 @@ python app.py
     ├── manifest.json    манифест PWA
     └── icons/           иконки 192×192 и 512×512
 ```
+![Демонстрация исходной страницы](C:\Users\Pepsik\Desktop\uuid-fastapi\932404.kondratov.vadim.lab6\public\icons\1.png)
+![Демонстрация работоспособности генератора](C:\Users\Pepsik\Desktop\uuid-fastapi\932404.kondratov.vadim.lab6\public\icons\2.png)

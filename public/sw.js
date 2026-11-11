@@ -9,7 +9,6 @@ const ASSETS = [
   '/icons/icon-512.png'
 ];
 
-// Установка: кладём статику в кеш
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS))
@@ -17,7 +16,6 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
 });
 
-// Активация: удаляем старые версии кеша
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
@@ -27,14 +25,12 @@ self.addEventListener('activate', (event) => {
   self.clients.claim();
 });
 
-// Перехват запросов
 self.addEventListener('fetch', (event) => {
   const req = event.request;
   const url = new URL(req.url);
 
   if (req.method !== 'GET' || url.origin !== self.location.origin) return;
 
-  // API не кешируем: нужны каждый раз новые UUID
   if (url.pathname.startsWith('/api/')) {
     event.respondWith(
       fetch(req).catch(() =>
@@ -47,7 +43,6 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Статика: сначала кеш, потом сеть
   event.respondWith(
     caches.match(req).then((cached) => {
       if (cached) return cached;
